@@ -9,6 +9,7 @@
 #include <algorithm>
 using namespace std;
 
+void drawQueueFrame();
 void drawWelcomeInterface();
 void queueSimulation();
 void drawInsert(string data);
@@ -16,6 +17,13 @@ void drawDelete(string preFrontNode);
 void drawObjectsInQueue(RECT pos);
 
 QUEUE* q = new QUEUE();
+// Mỗi node trong queue rộng 50 đơn vị và cách nhau 50 đơn vị
+RECT firstNodePos = { 350, 225, 400, 275 }; // vị trí của node đầu tiên trong queue
+RECT secondPos = { 450, 225, 500, 275 }; // vị trí của node thứ hai trong queue
+RECT beginPos = { 820, 225, 870, 275 }; // vị trí bắt đầu khi di chuyển vào queue
+RECT endPos = { 180, 225, 230, 275 }; // vị trí node kết thúc sau khi di chuyển khỏi queue
+int sleepTime = 100;
+int maxCap = 4; // số node tối đa trong queue
 
 int main()
 {
@@ -29,6 +37,13 @@ int main()
    queueSimulation(); // bắt đầu mô phỏng
 
     return 0;
+}
+
+void drawQueueFrame()
+{
+    setcolor(15);
+    line(300, 200, 750, 200);
+    line(300, 300, 750, 300);
 }
 
 // Vẽ giao diện bắt đầu
@@ -154,7 +169,8 @@ void queueSimulation()
     {
         if (q->size() >= 4)
         {
-            cout << "Queue is full. You can only choose Delete." << endl;;
+            //system("cls");
+            cout << "Queue is full. You can only choose Delete." << endl;
             queueSimulation();
         }
         else
@@ -176,6 +192,7 @@ void queueSimulation()
         }
         else
         {
+            //system("cls");
             cout << "Queue is empty. You must insert data first." << endl;
             queueSimulation();
         }

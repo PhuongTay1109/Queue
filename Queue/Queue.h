@@ -1,13 +1,5 @@
 ﻿#pragma once
 
-// Mỗi node trong queue rộng 50 đơn vị và cách nhau 50 đơn vị
-RECT firstNodePos = { 350, 225, 400, 275 }; // vị trí của node đầu tiên trong queue
-RECT secondPos = { 450, 225, 500, 275 }; // vị trí của node thứ hai trong queue
-RECT beginPos = { 820, 225, 870, 275 }; // vị trí bắt đầu khi di chuyển vào queue
-RECT endPos = { 180, 225, 230, 275 }; // vị trí node kết thúc sau khi di chuyển khỏi queue
-int sleepTime = 100;
-int maxCap = 4; // số node tối đa trong queue
-
 struct NODE {
     string data;
     NODE* next;
@@ -71,9 +63,3 @@ struct QUEUE {
     }
 };
 
-void drawQueueFrame()
-{
-    setcolor(15);
-    line(300, 200, 750, 200);
-    line(300, 300, 750, 300);
-}
